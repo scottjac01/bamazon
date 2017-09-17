@@ -16,5 +16,12 @@ CREATE TABLE products (
   
   stock_quantity INTEGER(30) NULL,
   
+  date_created  DATETIME DEFAULT CURRENT_TIMESTAMP,
+  
+  date_modified DATETIME ON UPDATE CURRENT_TIMESTAMP,
+  
    PRIMARY KEY (id)
 );
+
+
+select * from products;

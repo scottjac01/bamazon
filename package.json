@@ -1,0 +1,24 @@
+{
+  "name": "bamazon",
+  "version": "1.0.0",
+  "description": "A mock store front similar to amazon.  You will select items to order and purchase the items.",
+  "main": "bamazonCustomer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scottjac01/bamazon.git"
+  },
+  "author": "Scott Jackson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/scottjac01/bamazon/issues"
+  },
+  "homepage": "https://github.com/scottjac01/bamazon#readme",
+  "dependencies": {
+    "console.table": "^0.9.1",
+    "inquirer": "^3.2.3",
+    "mysql": "^2.14.1"
+  }
+}
