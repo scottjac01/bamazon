@@ -35,15 +35,10 @@ function displayProducts() {
     connection.query("SELECT item_id, product_name, price FROM products", function(err, res) {
     if (err) throw err;
     // Display the result of the query in a table
+    console.log("\n");
     console.table(res);
     console.log("---------------------------------------------------------------------");
-    
   });
-}
-
-// Functtion that keeps from getting a blank answer
-function validateItem(item) {
-    return item !== "";
 }
 
 //questions to be asked and answered
@@ -51,12 +46,29 @@ var questions = [{
         type: "input",
         name: "itemPicked",
         message: "Enter in the item_id you'd like to purchase",
-        validate:validateItem
+        validate: function(value) {
+          connection.query("SELECT item_id FROM products WHERE item_id = " + value, function(err, result) {
+            console.log(result);
+            if (err) throw err;
+           });
+           if(result[0].item_id === item){
+                return true;
+              }
+            else{
+              return "Item " + value + " is not a valid item_id...Please enter a valid item_id";
+            }
+        }
     }, {
         message: "How many do you want to purchase.",
         type: "input",
         name: "quantity",
-        validate:validateItem
+        validate: function(value) {
+          if (value.length) {
+            return true;
+          } else {
+            return 'Please enter a quantity.';
+          }
+        }
     }
 ];
 
@@ -64,19 +76,43 @@ var questions = [{
 inquirer.prompt(questions).then(function(answers) {
 	var itemSelected = answers.itemPicked;
 	var numItems = answers.quantity;
-
+  
 	//determine if the order can be filled.  If so update table quanity and show user the price
 	var query = "SELECT stock_quantity, product_name, price FROM products WHERE ? ";
       	connection.query(query, {item_id: itemSelected}, function(err, res){
       		if(err) throw err;
-      		console.log(res);
+  
       		if(res[0].stock_quantity >= 1){
       			console.log("Thank you for your purchase of the " + res[0].product_name + ",\n" +
       			"Your account will be charged $" + (res[0].price * numItems) + ".00");
-      		}
+
+            fs.appendFile(logfile, `Sold ${numItems} of the ${res[0].product_name}\n`, function(error) {
+            // If an error was experienced we say it.
+              if (error) {
+                console.log(error);
+            }
+            });
+            updateProducts();
+            function updateProducts(){
+              var query = "Update products set stock_quantity = ? where item_id = ? and stock_quantity > 0";
+                connection.query(query, [(res[0].stock_quantity - numItems), itemSelected], function(err1, res1){
+                  fs.appendFile(logfile, `Updated ${res[0].product_name} subtracted ${numItems} from stock_quantity\n`, function(err2) {
+            // If an error was experienced we say it.
+              if (err2) {
+                console.log(err2);
+            }
+            });
+                  if(err1) throw err1;
+
+                });
+              }
+            connection.end();
+          }	     
       		else{
       			console.log(`Sorry we're currently out of ${res[0].product_name}.`);
+            connection.end();
       		}
-      	connection.end();
-      	});
- });
+     });
+});
+
+

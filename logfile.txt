@@ -1,0 +1,11 @@
+Sold 2 of the Amazon Echo Dot
+Updated Amazon Echo Dot subtracted 2 from stock_quantity
+Sold 1 of the Google Daydream View VR Headset
+Updated Google Daydream View VR Headset subtracted 1 from stock_quantity
+Sold 10 of the Amazon Echo Dot
+Sold 10 of the Amazon Echo Dot
+Updated Amazon Echo Dot subtracted 10 from stock_quantity
+Sold 1 of the Advanced Sound Model 3 convertible earphones
+Updated Advanced Sound Model 3 convertible earphones subtracted 1 from stock_quantity
+Sold 1 of the Advanced Sound Model 3 convertible earphones
+Updated Advanced Sound Model 3 convertible earphones subtracted 1 from stock_quantity
