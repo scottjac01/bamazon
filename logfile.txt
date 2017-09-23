@@ -9,3 +9,11 @@ Sold 1 of the Advanced Sound Model 3 convertible earphones
 Updated Advanced Sound Model 3 convertible earphones subtracted 1 from stock_quantity
 Sold 1 of the Advanced Sound Model 3 convertible earphones
 Updated Advanced Sound Model 3 convertible earphones subtracted 1 from stock_quantity
+Sold 3 of the Chromecast Ultra
+Updated Chromecast Ultra subtracted 3 from stock_quantity
+Sold 4 of the Google Daydream View VR Headset
+Updated Google Daydream View VR Headset subtracted 4 from stock_quantity
+Sold 6 of the Aquaovo Alter Ego Personal Water Filter
+Updated Aquaovo Alter Ego Personal Water Filter subtracted 6 from stock_quantity
+Sold 2 of the Samsung Gear VR
+Updated Samsung Gear VR subtracted 2 from stock_quantity
