@@ -45,7 +45,7 @@ function displayProducts() {
 var questions = [{
     type: "input",
     name: "itemPicked",
-    message: "Enter in the item_id you'd like to purchase",
+    message: "Enter in the item_id you'd like to purchase.",
     validate: function(value) {
         if (value.length) {
             return true;
@@ -54,7 +54,7 @@ var questions = [{
         }
     }
 }, {
-    message: "How many do you want to purchase.",
+    message: "How many do you want to purchase?",
     type: "input",
     name: "quantity",
     validate: function(value) {
